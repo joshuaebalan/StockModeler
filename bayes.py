@@ -2,7 +2,11 @@ import numpy as np
 import pandas as pd
 import os
 
-train_data = pd.read_csv("djiatrain.csv")
+data = pd.read_csv("master.csv")
+#train_data = (data.dropna()).drop(data.columns[:2],axis=1)
+#train_data = train_data.drop(train_data.columns[4], axis=1)
+#train_data.apply(pd.to_numeric)
+train_data = data.dropna()
 n = len(train_data)
 x_data = train_data.iloc[:, np.r_[1,11,12,13]]
 #p(y)
