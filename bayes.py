@@ -184,8 +184,20 @@ else:
 ratio1 = num1 / denom
 ratio5 = num5 / denom
 ratio30 = num30 / denom
+word1 = " "
+if ratio1 < 0.5:
+    word1 = " not be "
+word5 = " "
+if ratio5 < 0.5:
+    word5 = " not be "
+word30 = " "
+if ratio30 < 0.5:
+    word30 = " not be "
+#ratio1 = f"{ratio1:.4f}"
+#ratio5 = f"{ratio5:.4f}"
+#ratio30 = f"{ratio30:.4f}"
 print("\n\n\n\nYour predictions are:\n")
 
-print("I am " + str(ratio1 * 100) + "% confident the stock will " + word + " in 1 day.")
-print("I am " + str(ratio5 * 100) + "% confident the stock will " + word + " in 5 days.")
-print("I am " + str(ratio30 * 100) + "% confident the stock will " + word + " in 30 days.")
+print("I am " + "{:.2f}".format(abs(ratio1 - 0.5) * 200) + "% sure the stock will" + word1 + word + " in 1 day.(i.e. a " + "{:.2f}".format(ratio1 * 100) + "% chance it will " + word + ")")
+print("I am " + "{:.2f}".format(abs(ratio5 - 0.5) * 200) + "% sure the stock will" + word5 + word + " in 5 days.(i.e. a " + "{:.2f}".format(ratio5 * 100) + "% chance it will " + word + ")")
+print("I am " + "{:.2f}".format(abs(ratio30 - 0.5) * 200) + "% sure the stock will" + word30 + word + " in 30 days.(i.e. a " + "{:.2f}".format(ratio30 * 100) + "% chance it will " + word + ")")
